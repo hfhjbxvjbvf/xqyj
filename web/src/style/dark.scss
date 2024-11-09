@@ -1,0 +1,51 @@
+// 定义深色主题颜色
+$dark-theme: (
+  background: #121212, // 背景色
+  text: #ffffff,       // 文字颜色
+  primary: #bb86fc,   // 主要按钮色
+  secondary: #03dac6, // 次要按钮色
+  border: #333333,    // 边框色
+);
+
+// 定义浅色主题颜色
+$light-theme: (
+  background: #ffffff, // 背景色
+  text: #000000,       // 文字颜色
+  primary: #6200ee,    // 主要按钮色
+  secondary: #03a9f4,  // 次要按钮色
+  border: #dddddd,     // 边框色
+);
+
+// 使用主题颜色的混合
+body {
+  background-color: map-get($dark-theme, background); // 设置深色背景
+  color: map-get($dark-theme, text);                   // 设置深色文字
+
+  // 示例按钮样式
+  .btn {
+    background-color: map-get($dark-theme, primary);
+    color: map-get($dark-theme, text);
+    border: 1px solid map-get($dark-theme, border);
+    padding: 10px 20px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: map-get($dark-theme, secondary);
+    }
+  }
+}
+
+// 混合浅色主题的样式
+.light-theme {
+  background-color: map-get($light-theme, background);
+  color: map-get($light-theme, text);
+
+  .btn {
+    background-color: map-get($light-theme, primary);
+    border: 1px solid map-get($light-theme, border);
+
+    &:hover {
+      background-color: map-get($light-theme, secondary);
+    }
+  }
+}
